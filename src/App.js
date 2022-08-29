@@ -116,7 +116,7 @@ function App() {
     ];
     const handleGetToggle = async () => {
         axios
-            .get("http://arduino-int-obj.herokuapp.com/Arduino/is-enabled")
+            .get("https://arduino-int-obj.herokuapp.com/Arduino/is-enabled")
             .then(function (response) {
                 setChecked(response.data.isEnabled);
                 setTempThreshold(response.data.temperature);
@@ -126,7 +126,7 @@ function App() {
     const handleGetSystemToggleInfo = async () => {
         axios
             .get(
-                "http://arduino-int-obj.herokuapp.com/Arduino/get-system-toggle-info"
+                "https://arduino-int-obj.herokuapp.com/Arduino/get-system-toggle-info"
             )
             .then(function (response) {
                 setSystemToggleInfo(response.data.items);
@@ -136,7 +136,7 @@ function App() {
     const getChartValues = async () => {
         axios
             .get(
-                "http://arduino-int-obj.herokuapp.com/Arduino/get-temperature-info"
+                "https://arduino-int-obj.herokuapp.com/Arduino/get-temperature-info"
             )
             .then(function (response) {
                 setTemperatureData(response.data.items);
@@ -146,7 +146,7 @@ function App() {
     const handleChange = async (event) => {
         axios
             .put(
-                `http://arduino-int-obj.herokuapp.com/Arduino/update-isEnabled?nextValue=${event.target.checked}`
+                `https://arduino-int-obj.herokuapp.com/Arduino/update-isEnabled?nextValue=${event.target.checked}`
             )
             .then(function (response) {});
 
@@ -154,7 +154,7 @@ function App() {
 
         axios
             .post(
-                `http://arduino-int-obj.herokuapp.com/Arduino/post-system-toggle-info?nextValue=${event.target.checked}`
+                `https://arduino-int-obj.herokuapp.com/Arduino/post-system-toggle-info?nextValue=${event.target.checked}`
             )
             .then(function (response) {});
     };
@@ -166,7 +166,7 @@ function App() {
     const handleTemperatureChangeSubmit = async (event) => {
         axios
             .put(
-                `http://arduino-int-obj.herokuapp.com/Arduino/update-temperature?nextValue=${tempThreshold}`
+                `https://arduino-int-obj.herokuapp.com/Arduino/update-temperature?nextValue=${tempThreshold}`
             )
             .then(function (response) {});
     };
